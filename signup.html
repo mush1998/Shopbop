@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   
+    <!-- title -->
+    <title> Shopbop Sign In</title>
+    <link rel="icon" href="https://cdn.shopper.com/images/store-logos/shopbop-1559223667209.png">
+ 
+</head>
+<style>
+    *{
+        background-color: #f6f4f5;
+    }
+    #form{
+        width: 300px;
+        height: 500px;
+        margin: auto;
+    }
+    .center{
+        margin: auto;  
+        text-align: center;
+        font-size: 45px;
+        margin-bottom: 10px!important;
+        font-weight: bold;
+    }
+    .sign{
+        /* */
+        font-family: Arial, sans-serif ;
+      
+    
+    }
+    .mail{
+        display: block;
+        padding-left: 2px;
+        padding-bottom: 2px;
+        font-weight: 700;
+    }
+    input{
+       width: 98%;
+       height: 25px;
+       margin-bottom: 5px;
+       background-color: white;
+       border:0.5px solid #bdbabc ;
+    }
+    .flex{
+        display: flex;
+    }
+    #pass{
+        margin-right: 80px;
+        font-weight: 700;
+    }
+    .forgot{
+      color:#ee4a1b;
+      font: 13px,Arial, sans-serif ;
+    }
+    #btn{
+        color: white;
+        background-color: #ee4a1b;  
+        width: 100%;
+        height: 30px;
+        font-family: Arial, sans-serif ;
+        border: none;
+        margin-top: 20px;
+    }
+    .mr{
+        margin-right:5px;
+    }
+    #box{
+        width: 15px;
+        height: 15px;
+        margin-top: 18px;
+    }
+    .clr{
+        color: #726e70;
+        font-size:13px ;
+    }
+    .Amazon-logo{
+        width: 30px;
+        height: 20px;
+        margin-right:5px ;
+    }
+    .mr-auto{
+        width: 75%;
+        height: 50px;
+        margin: 10px 30px 10px 30px;
+        padding-bottom: 3px ;
+        font-weight: 800;
+        font-size: 15px;
+        background-color: #f6f4f5;
+        border-radius: 5px;
+        border: 3px solid  #726e70;
+    }
+    #btn-create{
+        color: white;
+        background-color: black;  
+        width: 100%;
+        height: 40px;
+        font-family: Arial ;
+        border: none;
+        margin-top: 10px;
+
+    }
+    #outerdiv{
+        width: 90%;
+        height: 600px;
+        margin: auto;
+        box-shadow: rgba(17, 17, 26, 0.1) 0px 1px 0px;
+    }
+    .clrorg{
+        color: #ee4a1b;
+
+    }
+    #footer{
+        font-size: 11px;
+        text-align: center;
+    }
+    .ctr{
+        margin-left: 580px;
+    }
+    input[type="password"]
+    {
+    -webkit-text-security: disc;
+    }
+</style>
+<body>
+    <div id="outerdiv" >
+        <div><p class="center ">shopbop</p>
+        </div>
+           <div id="form">
+               <h2 class="sign">Sign In</h2>
+              <div>
+                  <label for="" class="mail">Email</label>
+                  <input type="text" id="ipmail">
+              </div>
+        
+              <div >
+                <div class="flex">  <p id="pass">Password</p><p class="forgot">Forgot your Password ?</p></div>
+                  <input type="password" id="ippassword">
+              </div>
+        
+              <div>
+                  <button id="btn"> Sign In</button>
+              </div>
+        
+              <div class="flex">
+                  <input type="checkbox" id="box">
+                  <div class="flex"> <p class="mr">Keep me Sign in. </p>  <p class="forgot">Details</p></div>   
+              </div>
+        
+              <div>
+                  <p class="clr">______________More sign in Options______________</p>
+              </div>
+              <div >
+                <button id="btn_more" class="mr-auto"> <img class="Amazon-logo" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSICMicCLGZHJdtbvCZ3CflBtMwTQQsRRF3xg&usqp=CAU" alt=""> Login With Amazon</button>
+            </div>
+            <div>
+                <p class="clr">_______________New to Shopbop ?________________</p>
+            </div>
+        
+            <div>
+                <button id="btn-create"> Create your Shopbop Account</button>
+            </div>
+        
+           </div>
+    </div>
+
+    <div id="footer">
+        <p class="clrorg" >Contact Us</p>
+        <div class="flex ctr"> <p>© 1999-2020 BOP LLC. All Rights Reserved. <p class="clrorg">Privacy Notice Conditions of Use</p> </p></div>  
+    </div>
+ 
+</body>
+</html>
+<script>
+
+let data=JSON.parse(localStorage.getItem("detail"));
+console.log(data);
+
+
+document.getElementById("btn").addEventListener("click",()=>{
+    let mail = document.getElementById("ipmail").value;
+    let Password =  document.getElementById("ippassword").value;
+//console.log(mail,Password)
+let checkcredentials=(mail,Password)=>{
+    for(let i=0; i<data.length; i++){
+       if(mail==data[i].mail && Password==data[i].password){
+         return  alert("Login Successfull");
+        //   
+       }   
+    }
+  return false;
+}
+    if(checkcredentials(mail,Password)==false){
+        alert("Check Login credentials");
+    }else{
+        window.location.assign("http://127.0.0.1:5500/index.html");
+    }  
+   
+})
+
+document.getElementById("btn-create").addEventListener("click", ()=>{
+    location.assign("http://127.0.0.1:5500/Registration.html")
+})
+
+
+
+</script>
