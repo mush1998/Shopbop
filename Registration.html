@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- title -->
+    <title> Shopbop Registration</title>
+    <link rel="icon" href="https://cdn.shopper.com/images/store-logos/shopbop-1559223667209.png">
+ 
+</head>
+
+<style>
+    *{
+        background-color: #f6f4f5;
+    }
+    #form{
+        width: 300px;
+        height: 500px;
+        margin: auto;
+    }
+    .center{
+        margin: auto;  
+        text-align: center;
+        font-size: 45px;
+        margin-bottom: 10px!important;
+        font-weight: bold;
+    }
+    .sign{
+        /* */
+        font-family: Arial, sans-serif ;
+      
+    
+    }
+    .mail{
+        display: block;
+        padding-left: 2px;
+        padding-bottom: 2px;
+        font-weight: 700;
+    }
+    input{
+       width: 98%;
+       height: 25px;
+       margin-bottom: 5px;
+       background-color: white;
+       border:0.5px solid #bdbabc ;
+    }
+    .flex{
+        display: flex;
+    }
+    #pass{
+        margin-right: 80px;
+        font-weight: 700;
+    }
+    .forgot{
+      color:#ee4a1b;
+      font-family: Arial, sans-serif ;
+      font-size: 10px;
+    }
+    #btn{
+        color: white;
+        background-color: #ee4a1b;  
+        width: 100%;
+        height: 30px;
+        font-family: Arial, sans-serif ;
+        border: none;
+        margin-top: 20px;
+    }
+    /* .mr{
+        margin-right:5px;
+        font-size: 13px;
+    } */
+    #box{
+        width: 15px;
+        height: 15px;
+        margin-top: 18px;
+    }
+    .clr{
+        color: #726e70;
+        font-size:13px ;
+    }
+    .Amazon-logo{
+        width: 30px;
+        height: 20px;
+        margin-right:5px ;
+    }
+    .mr-auto{
+        width: 75%;
+        height: 50px;
+        margin: 10px 30px 10px 30px;
+        padding-bottom: 3px ;
+        font-weight: 800;
+        font-size: 15px;
+        background-color: #f6f4f5;
+        border-radius: 5px;
+        border: 3px solid  #726e70;
+    }
+    /* #btn-create{
+        color: white;
+        background-color: black;  
+        width: 100%;
+        height: 40px;
+        font-family: Arial ;
+        border: none;
+        margin-top: 10px;
+
+    } */
+    #outerdiv{
+        width: 90%;
+        height: 600px;
+        margin: auto;
+        box-shadow: rgba(17, 17, 26, 0.1) 0px 1px 0px;
+    }
+    .clrorg{
+        color: #ee4a1b;
+
+    }
+    #footer{
+        font-size: 11px;
+        text-align: center;
+    }
+    .ctr{
+        margin-left: 580px;
+    }
+    a{
+        color: #ee4a1b;
+        text-decoration: none;
+        margin-top: 13px;
+        margin-left: 2px;
+        font-size:12px ;
+    }
+    input[type="password"]
+    {
+    -webkit-text-security: disc;
+    }
+</style>
+<body>
+    <div id="outerdiv" >
+        <div><p class="center ">shopbop</p>
+        </div>
+           <div id="form">
+               <h2 class="sign">Create account</h2>
+
+               <div>
+                <label for="" class="mail" id="name">Name</label>
+                <input type="text" id="ipname">
+            </div>
+
+              <div>
+                  <label for="" class="mail">Email</label>
+                  <input type="text" id="ipmail">
+              </div>
+        
+              <div>
+                <label for="" class="mail" id="pass">Password</label>
+                <input type="password" id="ippassword" placeholder="At least 6 characters ">
+               
+            </div>
+             
+            <div>
+                <label for="" class="mail" id="repass">Re-password</label>
+                <input type="password" id="iprepassword">
+            </div>
+        
+              <div>
+                  <button id="btn">Create Account</button>
+              </div>
+        
+              <div class="flex">
+               
+                  <div> <p class="forgot">By creating an account, you agree to ourPrivacy Notice and Conditions of Use.</p></div>   
+              </div>
+        
+              <div>
+                  <p class="clr">______________More sign in Options______________</p>
+              </div>
+              <div >
+                <button id="btn_more" class="mr-auto"> <img class="Amazon-logo" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSICMicCLGZHJdtbvCZ3CflBtMwTQQsRRF3xg&usqp=CAU" alt=""> Login With Amazon</button>
+            </div>
+            <div class="flex">
+                <p class="clr">Already have an account</p> <a href="signup.html">Sign in</a>
+            </div>
+        
+            <!-- <div>
+                <button id="btn-create"> Create your Shopbob Account</button>
+            </div> -->
+        
+           </div>
+    </div>
+
+    <div id="footer">
+        <p class="clrorg" >Contact Us</p>
+        <div class="flex ctr"> <p>© 1999-2020 BOP LLC. All Rights Reserved. <p class="clrorg">Privacy Notice Conditions of Use</p> </p></div>  
+    </div>
+ 
+</body>
+</html>
+<script>
+
+
+let arr=JSON.parse(localStorage.getItem("detail"))||[];
+
+document.getElementById("btn").addEventListener("click", ()=>{
+let name = document.getElementById("ipname").value;
+let mail = document.getElementById("ipmail").value;
+let pass2 = document.getElementById("iprepassword").value;
+let pass1 =  document.getElementById("ippassword").value;
+    // console.log(pass1.length)
+    // console.log(typeof pass1, typeof pass2)
+  
+  let checkpassword=(pass1,pass2,name,mail)=>{
+     let checkmail=(mail)=>{
+        // console.log(arr);
+          for(let i=0; i<arr.length; i++){
+              console.log(arr[i].mail)
+              if(mail===arr[i].mail){
+                 return alert("This Email ID is already registered");
+              }else{
+                  return false;
+              }
+          }
+     }
+     if(arr.length>0){
+        if(checkmail(mail)==false){
+        if(pass1===pass2){
+          if(pass1.length>=6){
+            let  obj={
+                    user:name,
+                    mail:mail,
+                    password:pass1,
+                    repassword:pass2
+                }
+            console.log(obj);
+            arr.push(obj);
+            localStorage.setItem(("detail"),JSON.stringify(arr));
+          }
+        }else{
+            alert("Check Password")
+        }
+
+      }
+
+     }else{
+        if(pass1===pass2){
+          if(pass1.length>=6){
+            let  obj={
+                    user:name,
+                    mail:mail,
+                    password:pass1,
+                    repassword:pass2
+                }
+            console.log(obj);
+            arr.push(obj);
+            localStorage.setItem(("detail"),JSON.stringify(arr));
+          }  
+     }
+      
+    }
+  } 
+  checkpassword(pass1,pass2,name,mail);
+   
+  //  location.assign("http://127.0.0.1:5500/signup.html")
+  
+})
+
+
+
+
+</script>
